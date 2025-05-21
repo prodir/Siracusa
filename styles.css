@@ -1,0 +1,161 @@
+:root {
+  --bg: #fdf9f5;
+  --light: #E8CA84;
+  --accent: #D1973B;
+  --dark: #051016;
+  --gray: #71777B;
+  --blue: #2F586E;
+}
+
+/* --------------------------------------1) ESTILOS POR DEFECTO: MÓVIL (0–599px)-------------------------------------- */
+* {
+  margin: 0; padding: 0; box-sizing: border-box; 
+}
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background: var(--bg);
+  color: var(--dark);
+  line-height: 1.5;
+}
+
+
+/* NAV */
+nav {
+  background: var(--bg);
+  position: fixed;
+  
+  width: 100%;
+  z-index: 100;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-sizing: border-box;
+}
+nav .container {
+  margin: 0 auto;
+  display: flex;   /* quita la limitación de ancho */
+  padding: 0 1rem;      /* espacio a los costados */
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo img {
+  max-height: 90px; /* o el tamaño que quieras */
+  width: auto;
+  display: block;
+}
+
+/* toggle VISIBLE en móvil */
+.nav-toggle {
+  display: block;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: var(--dark);
+  cursor: pointer;
+}
+
+/* links ocultos por defecto */
+.nav-links {
+  display: none;
+  list-style: none;
+}
+.nav-links.open {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  right: 1rem;
+  left: auto;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 1rem;
+  z-index: 1001;
+  box-sizing: border-box;
+}
+.nav-links a {
+  color: var(--dark);
+  text-decoration: none;
+  padding: 0.5rem 0;
+  transition: border-color 0.2s;
+}
+.nav-links a:hover {
+  border-bottom: 1px solid var(--blue);
+}
+
+/* HERO */
+.hero {
+  background: url('img0.png') center/cover no-repeat;
+  box-sizing: border-box;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 77px;
+}
+.hero-content {
+  text-align: center;
+  padding: 2rem;
+  border-radius: 0.5rem;
+}
+.hero h1 {
+  font-size: 3.5rem;
+  color: var(--bg);
+  margin-bottom: 0.5rem;
+}
+.hero p {
+  margin-bottom: 1rem;
+  color: var(--dark);
+  font-weight: 600;
+}
+.btn {
+  display: inline-block;
+  background: var(--blue);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.25rem;
+  text-decoration: none;
+  font-weight: bold;
+}
+.btn:hover {
+  background: var(--dark);
+}
+
+/* --------------------------------------2) NAV A PARTIR DE 600px: Tablet + Desktop-------------------------------------- */
+@media (min-width: 600px) {
+  .container {
+    justify-content: space-between; /* logo a la izquierda, menú a la derecha */
+    padding: 0 2rem;                /* opcional: un poquito de padding lateral */
+  }
+  /* ocultar toggle y mostrar siempre enlaces */
+  .nav-toggle {
+    display: none;
+  }
+  .nav-links {
+    display: flex;
+    position: static;
+    flex-direction: row;
+    width: auto;
+    flex: 0 1 auto;
+    list-style: none;
+    margin-left: auto;
+    margin: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+  .nav-links.open {
+    /* ya no hace falta override */
+    position: static;
+    box-shadow: none;
+  }
+  .nav-links a {
+    padding: 0 1rem;
+    border: none;
+  }
+
+
+/* --------------------------------------3) HERO A PARTIR DE 600px: Tablet + Desktop-------------------------------------- */
+
+  .hero {
+    background: url('img0.png') center/cover no-repeat;
+    height: 110vh;
+  }
+}
