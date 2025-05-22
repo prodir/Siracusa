@@ -147,20 +147,30 @@ nav .container {
   font-size: 1rem;
   border-radius: 0.25rem;
   text-decoration: none;
-  border: 3px solid;
   font-weight: bold;
     text-shadow:
     0 0 1px rgba(0,0,0,1),
     0 0 2px rgba(0,0,0,0.8);
+    transition: transform 0.4s ease-in-out;
+    filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.4));
 }
 .btn:hover {
   background: var(--bg);
+  transform: scale(1.4);
+  filter: drop-shadow(0 8px 16px rgba(255, 252, 252, 0.4));
 }
 
 /* SECCIÓN NUESTRO EQUIPO */
 .equipo {
   padding: 4rem 0;
   background: var(--blue); /* o el color que prefieras */
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.equipo.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .equipo-container {
@@ -203,10 +213,14 @@ nav .container {
   text-align: center;
   font-weight: bold;
   transition: background 0.4s ease;
+  transition: transform 0.2s ease-in-out;
+  
 }
 
 .btn-equip:hover {
   background: var(--bg);
+  color: var(--blue);
+  transform: scale(1.2);
 }
 
 .equipo-texto {
@@ -323,8 +337,9 @@ nav .container {
     font-size: 1.4rem;
     align-self: flex-start;
     margin: 0;
-    margin-bottom: 5rem;
-    width: 24rem;
+    margin-left: 10rem;
+    margin-bottom: 6rem;
+    padding: 1.1rem 4rem;
   }
 /*-------------------4) SECCION NUESTRO EQUIPO A PARTIR DE 600px: Tablet + Desktop-----------------*/
   .equipo-container {
@@ -336,6 +351,7 @@ nav .container {
   }
   .equipo-imgs {
     flex: 0 0 40%;
+    
   }
   /* La imagen combinada a la izquierda */
   .img-combined {
@@ -349,7 +365,7 @@ nav .container {
     height: auto;
     max-width: none;
     display: block;
-      filter: drop-shadow(0 8px 16px rgba(0,0,0,0.2));
+    filter: drop-shadow(0 8px 16px rgba(255, 252, 252, 0.3));
   }
   .btn-equip {
     display: block;
@@ -357,6 +373,8 @@ nav .container {
     margin-top: 4rem;
     align-items: center;
     margin: 5rem auto 0;     /* 1rem arriba, auto derecha/izquierda */
+    
+    filter: drop-shadow(0 8px 16px rgba(255, 252, 252, 0.4));
   }
   /* El bloque de texto a la derecha, que ocupe el resto */
   .equipo-texto {
@@ -369,8 +387,8 @@ nav .container {
   .equipo-texto h2 {
     font-size: 3rem;
     text-shadow:
-      0 0 2px rgba(0,0,0,1),
-      0 0 8px rgba(0,0,0,0.8);
+      0 0 2px rgb(0, 0, 0),
+      0 0 8px rgba(255, 255, 255, 0.8);
   }
   #equipo .clamp-text {
     font-size: 1.2rem;

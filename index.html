@@ -150,5 +150,22 @@ const obs = new IntersectionObserver(([e]) => {
 }, { threshold: 0.3 });
 obs.observe(img);
 </script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const seccionEquipo = document.querySelector('.equipo');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          seccionEquipo.classList.add('visible');
+        } else {
+          seccionEquipo.classList.remove('visible');
+        }
+      });
+    }, {
+      threshold: 0.2 // ajusta cuándo dispara (20% visible)
+    });
+    observer.observe(seccionEquipo);
+  });
+</script>
 </body>
 </html>
