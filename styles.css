@@ -4,7 +4,7 @@
   --accent: #D1973B;
   --dark: #051016;
   --gray: #71777B;
-  --blue: #2F586E;
+  --blue: #17394c;
 }
 
 /* --------------------------------------1) ESTILOS POR DEFECTO: MÓVIL (0–599px)-------------------------------------- */
@@ -18,6 +18,14 @@ body {
   line-height: 1.5;
 }
 
+/* Titulares + botones */
+h1, h2, h3, .btn, 
+.button, .btn-equip  {
+  font-family: 'Cinzel Decorative', serif;
+}
+p, a, {
+  font-family: 'Aileron', sans-serif;
+}
 
 /* NAV */
 nav {
@@ -83,7 +91,7 @@ nav .container {
 
 /* HERO */
 .hero {
-  background: url('img0.png') center/cover no-repeat;
+  background: url('herosiracusa.png') center/cover no-repeat;
   box-sizing: border-box;
   height: 100vh;
   display: flex;
@@ -92,32 +100,150 @@ nav .container {
   padding-top: 77px;
 }
 .hero-content {
-  text-align: center;
+  text-align: left;
   padding: 2rem;
   border-radius: 0.5rem;
+    width: 100%;
+  box-sizing: border-box;
 }
 .hero h1 {
   font-size: 3.5rem;
+  text-align: left;
   color: var(--bg);
   margin-bottom: 0.5rem;
+  text-shadow:
+    0 0 4px rgba(0,0,0,1),
+    0 0 10px rgba(0,0,0,0.8);
+}
+.hero h2 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  text-align: left;
+  font-size: 1.2rem;
+  color: var(--blue);
+  font-weight: 600;
+  text-shadow:
+    0 0 1px rgba(0,0,0,1),
+    0 0 2px rgba(0,0,0,0.8);
 }
 .hero p {
-  margin-bottom: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  text-align: left;
+  font-size: 1.2rem;
   color: var(--dark);
-  font-weight: 600;
+  font-weight: 400;
+  text-shadow:
+    0 0 1px rgba(0,0,0,1),
+    0 0 2px rgba(0,0,0,0.8);
 }
 .btn {
-  display: inline-block;
-  background: var(--blue);
+  display: block;
+  text-align: center;
+  background: #e7e3e3;
+  color: var(--blue);
+  padding: 0.7rem;
+  margin: 0 auto;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  text-decoration: none;
+  border: 3px solid;
+  font-weight: bold;
+    text-shadow:
+    0 0 1px rgba(0,0,0,1),
+    0 0 2px rgba(0,0,0,0.8);
+}
+.btn:hover {
+  background: var(--bg);
+}
+
+/* SECCIÓN NUESTRO EQUIPO */
+.equipo {
+  padding: 4rem 0;
+  background: var(--blue); /* o el color que prefieras */
+}
+
+.equipo-container {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding: 0 2rem;
+  gap: 2rem;
+}
+
+.equipo-imgs img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  display: block;
+  margin: 0 auto 1rem;
+  border-radius: 0.25rem;
+}
+
+.btn-equip {
+  display: block;
+  font-size: 1.3rem;
+  padding: 1.5rem;
+  background: transparent;
+  border: 1px solid;
+  color: #fff;
+  border-radius: 0.25rem;
+  text-decoration: none;
+  text-align: center;
+  font-weight: bold;
+  transition: background 0.4s ease;
+}
+
+.btn-equip:hover {
+  background: var(--bg);
+}
+
+.equipo-texto {
+  max-width: 800px;
+  text-align: center;
+  position: relative;
+  padding: 1rem 0 1rem 0;
+  color: var(--bg);
+    text-shadow:
+      0 0 1px rgba(0,0,0,1),
+      0 0 2px rgba(0,0,0,0.2);
+}
+
+.equipo-texto h2 {
+  font-size: 2rem;
+  color: var(--bg);
+  margin-bottom: 1rem;
+}
+
+/* Truncamiento inicial: 3 líneas con puntos suspensivos */
+.clamp-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 8;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  word-wrap: break-word;
+}
+
+/* Botón “Ver más” */
+.btn-vermas {
+  margin-top: 1rem;
+  background: transparent;
+  border: 1.5px solid;
   color: #fff;
   padding: 0.75rem 1.5rem;
   border-radius: 0.25rem;
-  text-decoration: none;
-  font-weight: bold;
+  cursor: pointer;
 }
-.btn:hover {
+.btn-vermas:hover {
   background: var(--dark);
 }
+
+/* Cuando expandas el texto, quitamos el clamp */
+.clamp-text.expanded {
+  -webkit-line-clamp: unset;
+  overflow: visible;
+}
+
 
 /* --------------------------------------2) NAV A PARTIR DE 600px: Tablet + Desktop-------------------------------------- */
 @media (min-width: 600px) {
@@ -150,12 +276,103 @@ nav .container {
     padding: 0 1rem;
     border: none;
   }
-
-
 /* --------------------------------------3) HERO A PARTIR DE 600px: Tablet + Desktop-------------------------------------- */
-
   .hero {
-    background: url('img0.png') center/cover no-repeat;
-    height: 110vh;
+    background: url('herosiracusa.png') center/cover no-repeat;
+    height: 100vh;
+    display: flex;
+    align-items: stretch;
+  }
+  .hero-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* opcional: controla ancho máximo */
+    max-width: auto;
+    margin: 0 auto;
+    padding: 2rem;
+    box-sizing: border-box;
+  }
+  .hero h1 {
+    text-align: left;
+    font-size: 5rem;
+    margin: 0;
+  }
+  .hero h2 {
+    font-size: 2.2rem;
+    margin: 0;
+  }
+  .hero p {
+    margin: 0;
+    text-align: left;
+    font-size: 2.2rem;
+  }
+  .btn {
+    font-size: 1.4rem;
+    align-self: flex-start;
+    margin: 0;
+    margin-bottom: 5rem;
+    width: 24rem;
+  }
+/*-------------------4) SECCION NUESTRO EQUIPO A PARTIR DE 600px: Tablet + Desktop-----------------*/
+  .equipo-container {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center; /* o center, según prefieras */
+    gap: 16rem;
+    padding: 2rem;
+  }
+  .equipo-imgs {
+    flex: 0 0 25%;
+    text-align: center;
+    padding-top: 4rem;
+  }
+  /* La imagen combinada a la izquierda */
+  .img-combined {
+    width: 100%;
+    height: auto;
+    max-width: none;
+    margin: 0;            /* quita el auto centrar */
+  }
+    .equipo-imgs img {
+    width: 100%;
+    height: auto;
+    max-width: none;
+    display: block;
+  }
+  .btn-equip {
+    display: inline-block;
+    margin-top: 4rem;
+    align-items: center;
+    margin: 6rem auto 0;     /* 1rem arriba, auto derecha/izquierda */
+  }
+  /* El bloque de texto a la derecha, que ocupe el resto */
+  .equipo-texto {
+    flex: 0 0 50%;
+    padding: 1rem;           /* retira el padding vertical extra */
+    color: var(--bg);
+    text-shadow:
+      0 0 1px rgba(0,0,0,1),
+      0 0 2px rgba(0,0,0,0.2);
+  }
+  .equipo-texto h2 {
+    font-size: 3rem;
+    margin-bottom: 4rem;
+    text-shadow:
+      0 0 2px rgba(0,0,0,1),
+      0 0 8px rgba(0,0,0,0.8);
+  }
+  #equipo .clamp-text {
+    font-size: 1.5rem;
+    text-align: left;
+  }
+  .btn-vermas {
+    display: none;
+  }
+    /* Mostrar siempre todo el texto */
+  .clamp-text {
+    -webkit-line-clamp: unset;  /* desactiva el límite de líneas */
+    overflow: visible;          /* deja que se expanda */
   }
 }

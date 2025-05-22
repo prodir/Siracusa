@@ -6,6 +6,8 @@
   <meta name="description" content="Sitio profesional de la Dra. Siracusa - Abogada Civil, Familiar y Penal" />
   <title>Dra. Siracusa - Abogada</title>
   <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Aileron:wght@300;400;600;700&family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
+
 </head>
 <body>
 
@@ -13,7 +15,7 @@
   <nav>
     <div class="container">
       <a href="#inicio" class="logo">
-        <img src="logofondo.png" alt="Logo Siracusa">
+        <img src="logosiracusa.png" alt="Logo Siracusa">
       </a>
       <button class="nav-toggle" aria-label="Abrir Menú">☰</button>
       <ul class="nav-links">
@@ -30,18 +32,41 @@
   <!-- Hero -->
   <section id="inicio" class="hero">
     <div class="hero-content">
-      <h1>Estudio jurídico integral Dra. Ana María Siracusa & Asociados.</h1>
-      <p>Protegemos sus derechos, brindándole soluciones legales personalizadas.</p>
-      <p>SOLUCIONAMOS TUS PROBLEMAS.</p>
-      <a href="#contacto" class="btn">Reserva una asesoría</a>
+      <div class="hero-text-block">
+        <h1>Estudio jurídico Siracusa & Asoc.</h1>
+        <h2>Dra. Ana Siracusa</h2>
+        <p>Titular del Estudio</p>
+      </div>
+      <a href="#contacto" class="btn">Hace tu Consulta</a>
     </div>
   </section>
 
   <!-- Nuestro Equipo -->
-  <section id="equipo" class="equipo">
-    <h2>Nuestro Equipo</h2>
-    <p>Próximamente...</p>
-  </section>
+<section id="equipo" class="equipo">
+  <div class="container equipo-container">
+    <div class="equipo-imgs">
+      <img src="nuestroequipo.png" class="img-combined">
+      <a href="#contacto" class="btn btn-equip">Hace tu consulta</a>
+    </div>
+    <div class="equipo-texto">
+      <h2>Nuestro Equipo</h2>
+      <p class="clamp-text">
+        <!-- Aquí tu texto largo -->
+        El Estudio Jurídico Siracusa tiene sus raíces en una sólida tradición familiar legal iniciada en el año 1966 por el Dr. Jorge Luis Siracusa, mi padre, 
+        reconocido abogado penalista  ex Juez en los Departamentos Judiciales de Mercedes y San Isidro. 
+        Ha ejercido como defensor en el ámbito privado como así también en sus comienzos en la carrera judicial.
+        Este legado de excelencia ha sido mi base para construir un estudio jurídico con una visión más integral, si bien mi especialidad y pasión personal se centran en el Derecho Penal, 
+        he ampliado el alcance de nuestro estudio para ofrecer soluciones integrales en otras ramas esenciales del derecho, como el Derecho de Familia y el Derecho Civil. 
+        Para ello, cuento con un equipo de abogados altamente calificados y dedicados a brindar la misma calidad y compromiso que ha caracterizado a nuestro estudio desde sus inicios, 
+        los cuales son supervisados por mi como titular del mismo.
+        En cuanto a mí personalmente soy la DRA ANA MARIA SIRACUSA, egresada de la UNIVERSIDAD DEL SALVADOR con más de 23 años de trayectoria con un sinfín de cursos y capacitaciones en post de ser cada vez mejor 
+        profesional y brindar las mejores estrategias a nuestros clientes para resolver sus problemas.
+        Cuento con matriculada FEDERAL, PROVINCIA Y NACION, actuando en todo el país.
+      </p>
+      <button type="button" class="btn-vermas">Ver más</button>
+    </div>
+  </div>
+</section>
 
   <!-- Servicios -->
   <section id="servicios" class="servicios">
@@ -96,7 +121,7 @@
       <button type="submit" class="btn">Enviar</button>
     </form>
   </section>
-
+  <!--SCRIPT PARA TOGGLE-->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const toggle = document.querySelector('.nav-toggle');
@@ -106,5 +131,17 @@
       });
     });
   </script>
+  <!--SCRIPT PARA VERMAS NUESTRO EQUIPO-->
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const btn = document.querySelector('.btn-vermas');
+    const texto = document.querySelector('.clamp-text');
+
+    btn.addEventListener('click', () => {
+      const isExpanded = texto.classList.toggle('expanded');
+      btn.textContent = isExpanded ? 'Ver menos' : 'Ver más';
+    });
+  });
+</script>
 </body>
 </html>
