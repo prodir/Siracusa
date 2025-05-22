@@ -45,8 +45,8 @@
 <section id="equipo" class="equipo">
   <div class="container equipo-container">
     <div class="equipo-imgs">
-      <img src="nuestroequipo.png" class="img-combined">
-      <a href="#contacto" class="btn btn-equip">Hace tu consulta</a>
+        <img src="nuestroequipo.png" class="img-combined">
+        <a href="#contacto" class="btn-equip">Hace tu consulta</a>
     </div>
     <div class="equipo-texto">
       <h2>Nuestro Equipo</h2>
@@ -142,6 +142,13 @@
       btn.textContent = isExpanded ? 'Ver menos' : 'Ver más';
     });
   });
+</script>
+<script>
+  const img = document.querySelector('.img-combined');
+const obs = new IntersectionObserver(([e]) => {
+  if (e.isIntersecting) img.classList.add('visible');
+}, { threshold: 0.3 });
+obs.observe(img);
 </script>
 </body>
 </html>
