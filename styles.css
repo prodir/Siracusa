@@ -31,11 +31,20 @@ p, a, {
 nav {
   background: var(--bg);
   position: fixed;
-  
   width: 100%;
   z-index: 100;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   box-sizing: border-box;
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeInNav 0.8s ease-out forwards;
+  animation-delay: 0.2s;
+}
+@keyframes fadeInNav {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 nav .container {
   margin: 0 auto;
@@ -98,13 +107,34 @@ nav .container {
   align-items: center;
   justify-content: center;
   padding-top: 77px;
+  opacity: 0;
+  transform: scale(1.02);
+  animation: fadeInHero 1.2s ease-out forwards;
+  animation-delay: 0.4s;
+}
+@keyframes fadeInHero {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 .hero-content {
   text-align: left;
   padding: 2rem;
   border-radius: 0.5rem;
-    width: 100%;
+  width: 100%;
   box-sizing: border-box;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  animation: fadeInUp 2s ease-out forwards;
+  animation-delay: 0.4s; /* demoras opcional */
+}
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 .hero h1 {
   font-size: 3.5rem;
@@ -156,14 +186,19 @@ nav .container {
 }
 .btn:hover {
   background: var(--bg);
-  transform: scale(1.4);
+  transform: scale(1.1);
   filter: drop-shadow(0 8px 16px rgba(255, 252, 252, 0.4));
 }
 
 /* SECCIÓN NUESTRO EQUIPO */
 .equipo {
   padding: 4rem 0;
-  background: var(--blue); /* o el color que prefieras */
+  background: url('serviciosfondo.png') center center / cover no-repeat;
+  /* si quieres que ocupe siempre al menos toda la ventana: */
+  min-height: 100vh;
+  /* para que el contenido interno siga respetando su padding */
+  padding: 4rem 2rem;
+  box-sizing: border-box;
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.6s ease, transform 0.6s ease;
@@ -220,7 +255,7 @@ nav .container {
 .btn-equip:hover {
   background: var(--bg);
   color: var(--blue);
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
 
 .equipo-texto {
@@ -269,6 +304,76 @@ nav .container {
   overflow: visible;
 }
 
+/*SECCION SERVICIOS*/
+/* Sección de Servicios con fondo full-width */
+#servicios {
+  background: url('serviciosfondo.png') center center / cover no-repeat;
+  /* si quieres que ocupe siempre al menos toda la ventana: */
+  min-height: 100vh;
+  /* para que el contenido interno siga respetando su padding */
+  padding: 4rem 2rem;
+  box-sizing: border-box;
+  color: var(--dark); /* ajusta el color del texto si hace falta */
+}
+
+.servicios {
+  padding: 4rem 1rem;
+  background: var(--light);
+}
+
+.servicios-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.servicios-col h2 {
+  font-family: 'Cinzel Decorative', serif;
+  color: var(--bg);
+  margin-bottom: 1rem;
+}
+
+/* 2) Tarjetas */
+.servicio-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fff;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transform: none;
+  transition: none;
+  opacity: 1;
+  margin-bottom: 1rem;
+  padding: 1rem;
+}
+
+.servicio-card img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 0.2rem;
+  margin-top: 3rem;
+}
+
+.servicio-texto {
+  padding: 2rem 1.5rem;
+  text-align: center;
+}
+
+.servicio-texto h3 {
+  margin: 0 0 0.5rem;
+  font-family: 'Cinzel Decorative', serif;
+  color: var(--accent);
+  text-align: center;
+}
+
+.servicio-texto p {
+  margin: 0;
+  font-family: 'Aileron', sans-serif;
+  color: var(--dark);
+}
 
 /* --------------------------------------2) NAV A PARTIR DE 600px: Tablet + Desktop-------------------------------------- */
 @media (min-width: 600px) {
@@ -402,4 +507,66 @@ nav .container {
     -webkit-line-clamp: unset;  /* desactiva el límite de líneas */
     overflow: visible;          /* deja que se expanda */
   }
+
+    /*SECION SERVICIOS*/
+  .servicios-container {
+    flex-direction: row;
+    gap: 4rem;
+    position: relative;
+    overflow-x: hidden;
+  }
+  .servicios-col {
+    flex: 1;
+  }
+  .servicio-card {
+    display: flex;
+    flex-direction: row;
+    padding: 1rem 4rem;
+    align-items: center;
+    background: #fff;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+
+    /* animación */
+    opacity: 0;
+    transition: opacity 1.6s ease, transform 1.6s ease, box-shadow 1.6s ease;
+  }
+
+
+
+  /* control de entrada */
+  .slide-left  { transform: translateX(-350px); }
+  .slide-right { transform: translateX(350px); }
+
+  /* al hacerse visible */
+  .servicio-card.visible {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+  .servicio-card img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 0.2rem;
+  margin-top: 0;
+}
+
+.servicio-texto {
+  padding: 2rem 1.5rem;
+  text-align: center;
+}
+
+.servicio-texto h3 {
+  margin: 0 0 0.5rem;
+  font-family: 'Cinzel Decorative', serif;
+  color: var(--accent);
+  text-align: center;
+}
+
+.servicio-texto p {
+  margin: 0;
+  font-family: 'Aileron', sans-serif;
+  color: var(--dark);
+}
 }

@@ -69,35 +69,100 @@
 </section>
 
   <!-- Servicios -->
-  <section id="servicios" class="servicios">
-    <h2>Servicios</h2>
-    <div class="servicios-grid">
-      <div>
-        <h3>Civil y Familiar</h3>
-        <ul>
-          <li>Sucesiones</li>
-          <li>Cuidado personal</li>
-          <li>Régimen de comunicación</li>
-          <li>Divorcios</li>
-          <li>Desalojo</li>
-          <li>Medidas cautelares</li>
-          <li>Adopciones</li>
-          <li>Guardas y curatelas</li>
-        </ul>
+<section id="servicios" class="servicios">
+  <div class="servicios-container">
+    <!-- Columna Civil y Familiar -->
+    <div class="servicios-col civil">
+      <h2>Derecho Civil</h2>
+      <div class="servicio-card slide-left">
+        <img src="sucesiones.png" alt="Sucesiones">
+        <div class="servicio-texto">
+          <h3>Sucesiones</h3>
+          <p>Acompañamos a los herederos en cada etapa del trámite sucesorio, desde el inicio, la declaratoria de herederos hasta la inscripción en el registro. Buscamos siempre un proceso ágil, evitando decisiones innecesarias.
+Nuestro objetivo es resolver cualquier conflicto con la máxima claridad y confianza.</p>
+        </div>
       </div>
-      <div>
-        <h3>Penal</h3>
-        <ul>
-          <li>Excarcelaciones</li>
-          <li>Eximiciones de prisión</li>
-          <li>Habeas corpus</li>
-          <li>Recursos cámara</li>
-          <li>Casación</li>
-          <li>Corte suprema</li>
-        </ul>
+    <!-- Nuevo subtítulo intermedio -->
+      <h2 class="subtitulo-intermedio">Derecho de familia</h2>
+      <div class="servicio-card slide-left">
+        <img src="divorcios.png" alt="Divorcios">
+        <div class="servicio-texto">
+          <h3>Divorcios</h3>
+          <p>Ofrecemos asesoramiento integral en divorcios.
+Redactamos convenios , acuerdos de cuota alimentaria y regímenes de comunicación con los hijos, cuidando el bienestar de toda la familia. Compensación económica. Si el proceso requiere litigio, diseñamos la estrategia legal adecuada y te representamos en cada instancia judicial, procurando siempre la solución más beneficiosa y menos traumática posible. Divorcios por voluntad unilateral y de ambas partes.</p>
+        </div>
+      </div>
+      <div class="servicio-card slide-left">
+        <img src="alimentos.png" alt="Alimentos">
+        <div class="servicio-texto">
+          <h3>Alimentos</h3>
+          <p>Reclamos de cuotas de alimentos: Fijación, incidente de aumento de cuota alimentaria, incidente de reducción de cuota alimentaria, ejecución de convenio de alimentos.</p>
+        </div>
+      </div>
+      <div class="servicio-card slide-left">
+        <img src="adopciones.png" alt="Adopciones">
+        <div class="servicio-texto">
+          <h3>Adopciones</h3>
+          <p>Asesoramiento y patrocinio en los procesos de adopción, guiando a las familias a través de los trámites procesales necesarios para la adopción del menor y nuevo miembro de la familia
+</p>
+        </div>
+      </div>
+      <div class="servicio-card slide-left">
+        <img src="guardasycuratelas.png" alt="Guardas y Curatelas">
+        <div class="servicio-texto">
+          <h3>Guardas y Curatelas</h3>
+          <p>Asistencia legal en la designación de representantes legales para personas que carecen de plena capacidad para ejercer sus derechos, velando por su protección y bienestar.
+</p>
+        </div>
       </div>
     </div>
-  </section>
+    <!-- Columna Penal -->
+    <div class="servicios-col penal">
+      <h2>Penal</h2>
+      <div class="servicio-card slide-right">
+        <img src="excarcelaciones.png" alt="Excarcelaciones">
+        <div class="servicio-texto">
+          <h3>Excarcelaciones</h3>
+        </div>
+      </div>
+      <div class="servicio-card slide-right">
+        <img src="eximiciondeprision.png" alt="Eximición de prisión">
+        <div class="servicio-texto">
+          <h3>Eximición de prisión</h3>
+        </div>
+      </div>
+      <div class="servicio-card slide-right">
+        <img src="habeascourpus.png" alt="Habeas Courpus">
+        <div class="servicio-texto">
+          <h3>Habeas Courpus</h3>
+        </div>
+      </div>
+      <div class="servicio-card slide-right">
+        <img src="recursos.png" alt="Recursos">
+        <div class="servicio-texto">
+          <h3>Recursos</h3>
+          <p>Ante Cámara Departamental, Casación Penal, Suprema Corte, Corte Suprema de Justicia de la Nación. </p>
+        </div>
+      </div>
+      <div class="servicio-card slide-right">
+        <img src="delitos.png" alt="Delitos">
+        <div class="servicio-texto">
+          <h3>Delitos</h3>
+          <ul>
+            <li>Robo calificado</li>
+            <li>Homicidios Doloso/Culposo</li>
+            <li>Comercialización de estupefacientes</li>
+            <li>Abuso sexual</li>
+            <li>Femicidio</li>
+          </ul>
+          <p>
+            Actuamos como querellantes, particulares damnificados, asi tambien, como defensa.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
   <!-- Testimonios -->
   <section id="testimonios" class="testimonios">
@@ -121,6 +186,26 @@
       <button type="submit" class="btn">Enviar</button>
     </form>
   </section>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const hero = document.querySelector('.hero-content');
+    if (!hero) return;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        // agrega/quita clase .visible cada vez que entres/salgas de la sección
+        entry.target.classList.toggle('visible', entry.isIntersecting);
+      });
+    }, {
+      threshold: 0.1 // se dispara cuando el 10% del hero está visible
+    });
+
+    observer.observe(hero);
+  });
+</script>
+
+
+
   <!--SCRIPT PARA TOGGLE-->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -167,5 +252,24 @@ obs.observe(img);
     observer.observe(seccionEquipo);
   });
 </script>
+
+  <!--SCRIPT PARA SLIDE SERVICIOS-->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const cards = document.querySelectorAll(".servicio-card");
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      // togglea la clase visible cada vez que entre/salga del viewport
+      entry.target.classList.toggle("visible", entry.isIntersecting);
+    });
+  }, {
+    root: null,
+    threshold: 0.1  // dispara cuando el 10% de la tarjeta es visible
+  });
+
+  cards.forEach(card => observer.observe(card));
+});
+</script>
+
 </body>
 </html>
