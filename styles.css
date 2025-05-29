@@ -1,6 +1,6 @@
 :root {
   --bg: #fdf9f5;
-  --light: #E8CA84;
+  --light: rgb(232, 202, 132);
   --accent: #D1973B;
   --dark: #051016;
   --gray: #71777B;
@@ -23,7 +23,7 @@ h1, h2, h3, .btn,
 .button, .btn-equip  {
   font-family: 'Cinzel Decorative', serif;
 }
-p, a, {
+p, a {
   font-family: 'Aileron', sans-serif;
 }
 
@@ -192,22 +192,13 @@ nav .container {
 
 /* SECCIÓN NUESTRO EQUIPO */
 .equipo {
-  padding: 4rem 0;
   background: url('serviciosfondo.png') center center / cover no-repeat;
   /* si quieres que ocupe siempre al menos toda la ventana: */
   min-height: 100vh;
   /* para que el contenido interno siga respetando su padding */
   padding: 4rem 2rem;
   box-sizing: border-box;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
 }
-.equipo.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 .equipo-container {
   display: flex;
   flex-direction: column;
@@ -216,7 +207,6 @@ nav .container {
   max-width: 100%;       /* nunca más ancho que el viewport */
   margin: 0 auto;
 }
-
 .equipo-imgs .img-combined {
   width: 100%;
   max-width: 400px;
@@ -226,16 +216,6 @@ nav .container {
   border-radius: 0.25rem;
     filter: drop-shadow(0 8px 16px rgba(0,0,0,0.2));
 }
-.img-combined {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s, transform 0.6s;
-}
-.img-combined.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 .btn-equip {
   display: block;
   font-size: 1.3rem;
@@ -249,15 +229,12 @@ nav .container {
   font-weight: bold;
   transition: background 0.4s ease;
   transition: transform 0.2s ease-in-out;
-  
 }
-
 .btn-equip:hover {
   background: var(--bg);
   color: var(--blue);
   transform: scale(1.1);
 }
-
 .equipo-texto {
   max-width: 800px;
   text-align: center;
@@ -319,6 +296,14 @@ nav .container {
   gap: 2rem;
 }
 
+.servicios-titulo {
+    text-align: center;        /* centra el texto */
+  font-size: 2.5rem;         /* ajusta el tamaño a tu gusto */
+  margin-bottom: 2rem;       /* espacio abajo antes de las columnas */
+  color: var(--bg);        /* o el color que uses para títulos */
+  font-weight: 600;          /* un poco de énfasis */
+}
+
 .servicios-col h2 {
   font-family: 'Cinzel Decorative', serif;
   color: var(--bg);
@@ -371,6 +356,10 @@ nav .container {
   color: var(--dark);
 }
 
+#testimonios {
+    padding: 1rem;
+  }
+
 /*---------------------------------CONTACTO SECCION------------------------------------*/
 .contacto-container {
   width: 100%;
@@ -392,28 +381,35 @@ nav .container {
 }
 .contacto-top {
   display: block;
+  font-size: 1.1rem;
 }
 /* Columnas de datos */
 .contacto-info {
-  text-align: center;
-  gap: 2rem;
-  margin-bottom: 2rem;
+  box-sizing: border-box;
+  padding: 1rem;
 }
 
-.contacto-col h3 {
+.contacto-info .contacto-derecha {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto auto auto;
+  grid-gap: 1rem;
+}
+.contacto-derecha .full {
+  grid-column: 1 / -1;
+}
+.contacto-derecha .half {
+  grid-column: span 1;
+}
+.contacto-derecha .full:last-of-type {
+  grid-column: 1 / -1;
+}
+.contacto-derecha .end {
+  grid-column: 1 / -1;
+  font-weight: bold;
+  font-size: 1.7rem;
   font-family: 'Cinzel Decorative', serif;
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
 }
-
-.contacto-info .contacto-col {
-  font-family: 'Aileron', sans-serif;
-  font-size: 1rem;
-  color: var(--bg);
-  margin: 0.25rem 0;
-  text-align: center;
-}
-
 /* Mapa embebido */
 .contacto-top .mapa iframe {
   width: 100%;
@@ -448,14 +444,75 @@ nav .container {
   color: var(--blue);
   transform: scale(1.05);
 }
-.icono-ig {
+.btn-instagram {
   font-size: 2.5rem;
   color: var(--bg);
   text-decoration: none;
-  transition: transform 0.3s;
 }
-.icono-ig:hover {
-  transform: scale(1.2);
+
+/*-----------------------------FAQS SECCION-----------------------------------------*/
+/* Contenedor general */
+.faqs {
+  padding: 4rem 1rem;
+  text-align: center;
+  background: var(--bg);
+  color: #051016;
+}
+
+/* Título centrado */
+.faqs__titulo {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: var(--light);
+  text-shadow:
+    transition: transform 0.4s ease-in-out;
+    filter: drop-shadow(0 4px 12px rgba(232, 202, 132, 0.5));
+}
+
+/* Cada ítem */
+.faq-item {
+  max-width: 1200px;
+  margin: 0 auto;
+  border-bottom: 1px solid var(--light);
+  text-shadow: #051016;
+}
+
+/* Botón de pregunta */
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 2.5rem 1rem;
+  font-size: 1.4rem;
+  font-family: inherit;
+  color: inherit;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* Icono (flecha) */
+.faq-icon {
+  transition: transform 0.3s ease;
+}
+
+/* Respuesta oculta por defecto */
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  text-align: left;
+}
+
+/* Cuando está abierto… */
+.faq-item.open .faq-icon {
+  transform: rotate(180deg);
+}
+
+.faq-item.open .faq-answer {
+  max-height: 500px; /* suficiente para mostrar tu texto */
+  padding-bottom: 1rem;
 }
 
 
@@ -531,16 +588,25 @@ nav .container {
     padding: 1.1rem 4rem;
   }
 /*-------------------4) SECCION NUESTRO EQUIPO A PARTIR DE 600px: Tablet + Desktop-----------------*/
-  .equipo-container {
+
+.equipo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4rem 1rem;
+}  
+.equipo-container {
+  display: flex;
     flex-direction: row;
-    align-items: flex-start;
-    gap: 4%;
+    justify-content: center;
+    align-items: center;
     padding: 2rem;
     max-width: 1800px;
+    margin: 0 auto;
   }
   .equipo-imgs {
     flex: 0 0 40%;
-    
+    padding-right: 5rem;
   }
   /* La imagen combinada a la izquierda */
   .img-combined {
@@ -554,15 +620,15 @@ nav .container {
     height: auto;
     max-width: none;
     display: block;
-    filter: drop-shadow(0 8px 16px rgba(255, 252, 252, 0.3));
+     margin: 5rem auto;
+    filter: drop-shadow(0 4px 16px rgba(255, 252, 252, 0.3));
   }
   .btn-equip {
     display: block;
     justify-content: center;
-    margin-top: 4rem;
+    margin-top: 5rem auto;
     align-items: center;
-    margin: 5rem auto 0;     /* 1rem arriba, auto derecha/izquierda */
-    
+    margin: 5rem auto;     /* 1rem arriba, auto derecha/izquierda */
     filter: drop-shadow(0 8px 16px rgba(255, 252, 252, 0.4));
   }
   /* El bloque de texto a la derecha, que ocupe el resto */
@@ -594,14 +660,17 @@ nav .container {
 
     /*SECION SERVICIOS*/
   .servicios-container {
+    display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
-    gap: 1rem;
-    padding: 1rem;
+    justify-content: center;
+    gap: 5rem;
+    padding: 2rem;
     position: relative;
     overflow-x: hidden;
   }
   .servicios-col {
-    flex: 1;
+    flex: 0 1 50rem;
   }
   .servicio-card {
     display: flex;
@@ -609,7 +678,7 @@ nav .container {
     max-width: 55rem;
     align-items: center;
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 20px rgba(248, 248, 248, 0.295);
     /* vidrio: fondo semi-transparente + blur */
     background: rgba(255, 255, 255, 0.445);
     backdrop-filter: blur(5px);
@@ -639,6 +708,7 @@ nav .container {
   border-radius: 0.2rem;
   margin-top: 0;
   margin-left: 1rem;
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.411);
 }
 
 .servicio-texto {
@@ -689,12 +759,12 @@ nav .container {
     padding: 3rem;
   }
 
-  .contacto-info .contacto-col {
+  .contacto-info .contacto-derecha {
     flex: 1;                 /* dos columnas iguales */
     text-align: left;        /* alineamos el texto a la izquierda */
     font-size: 1.3rem;
   }
-.contacto-top .contacto-col {
+.contacto-top .contacto-derecha {
   flex: 1;                   /* cada columna de info igual ancho */
 }
   /* centramos los botones pero sin que ocupen todo el ancho */
@@ -729,9 +799,18 @@ nav .container {
   /* El botón de Instagram (icono) puede ser más pequeño */
   .contacto-botones .btn-instagram {
     flex: 0 0 auto;     /* tamaño fijo según su contenido */
-}
+    text-decoration: none;
+    transition: transform 0.3s;
+  }
   .contacto-botones .btn-instagram i {
-    font-size: 2rem;
+    font-size: 6rem;
     color: #fff;
+  }
+  .btn-instagram:hover {
+    transform: scale(1.2);
+  }
+  /*-----------------------------------TESTIMONIOS SECCION-------------------------------------------*/
+  #testimonios {
+    padding: 8rem;
   }
 }
