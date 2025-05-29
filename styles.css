@@ -305,20 +305,12 @@ nav .container {
 }
 
 /*SECCION SERVICIOS*/
-/* Sección de Servicios con fondo full-width */
 #servicios {
-  background: url('serviciosfondo.png') center center / cover no-repeat;
-  /* si quieres que ocupe siempre al menos toda la ventana: */
+  background: var(--blue);
   min-height: 100vh;
-  /* para que el contenido interno siga respetando su padding */
   padding: 4rem 2rem;
   box-sizing: border-box;
-  color: var(--dark); /* ajusta el color del texto si hace falta */
-}
-
-.servicios {
-  padding: 4rem 1rem;
-  background: var(--light);
+  color: var(--dark);
 }
 
 .servicios-container {
@@ -338,10 +330,14 @@ nav .container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #fff;
+    /* vidrio: fondo semi-transparente + blur */
+  background: rgba(255, 255, 255, 0.445);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 0.5rem;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
   transform: none;
   transition: none;
   opacity: 1;
@@ -599,7 +595,8 @@ nav .container {
     /*SECION SERVICIOS*/
   .servicios-container {
     flex-direction: row;
-    gap: 4rem;
+    gap: 1rem;
+    padding: 1rem;
     position: relative;
     overflow-x: hidden;
   }
@@ -609,13 +606,16 @@ nav .container {
   .servicio-card {
     display: flex;
     flex-direction: row;
-    padding: 1rem 4rem;
+    max-width: 55rem;
     align-items: center;
-    background: #fff;
-    border-radius: 0.5rem;
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-
+    /* vidrio: fondo semi-transparente + blur */
+    background: rgba(255, 255, 255, 0.445);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.5rem;
     /* animación */
     opacity: 0;
     transition: opacity 1.6s ease, transform 1.6s ease, box-shadow 1.6s ease;
@@ -624,8 +624,8 @@ nav .container {
 
 
   /* control de entrada */
-  .slide-left  { transform: translateX(-350px); }
-  .slide-right { transform: translateX(350px); }
+  .slide-left  { transform: translateX(-200px); }
+  .slide-right { transform: translateX(200px); }
 
   /* al hacerse visible */
   .servicio-card.visible {
@@ -633,23 +633,23 @@ nav .container {
     transform: translateX(0) scale(1);
   }
   .servicio-card img {
-  width: 300px;
-  height: 300px;
+  width: 200px;
+  height: 200px;
   object-fit: cover;
   border-radius: 0.2rem;
   margin-top: 0;
+  margin-left: 1rem;
 }
 
 .servicio-texto {
-  padding: 2rem 1.5rem;
-  text-align: center;
+  text-align: left;
 }
 
 .servicio-texto h3 {
   margin: 0 0 0.5rem;
   font-family: 'Cinzel Decorative', serif;
   color: var(--accent);
-  text-align: center;
+  text-align: left;
 }
 
 .servicio-texto p {
