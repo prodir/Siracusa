@@ -100,12 +100,15 @@ nav .container {
 
 /* HERO */
 .hero {
-  background: url('herosiracusa.png') center/cover no-repeat;
+  background: url('anasiracusa.png');
+  background-size: cover;       /* para que escale y cubra */
+  background-position: center;   /* centra la parte importante */
   box-sizing: border-box;
   height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
   padding-top: 77px;
   opacity: 0;
   transform: scale(1.02);
@@ -119,9 +122,12 @@ nav .container {
   }
 }
 .hero-content {
+  flex: 1;
+  display: flex;
   text-align: left;
-  padding: 2rem;
-  border-radius: 0.5rem;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
   width: 100%;
   box-sizing: border-box;
   opacity: 0;
@@ -136,8 +142,8 @@ nav .container {
     transform: translateY(0);
   }
 }
-.hero h1 {
-  font-size: 3.5rem;
+.hero-title {
+  font-size: 2rem;
   text-align: left;
   color: var(--bg);
   margin-bottom: 0.5rem;
@@ -145,24 +151,16 @@ nav .container {
     0 0 4px rgba(0,0,0,1),
     0 0 10px rgba(0,0,0,0.8);
 }
-.hero h2 {
+.hero-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
   text-align: left;
   font-size: 1.2rem;
-  color: var(--blue);
+  color: var(--bg);
   font-weight: 600;
-  text-shadow:
-    0 0 1px rgba(0,0,0,1),
-    0 0 2px rgba(0,0,0,0.8);
-}
-.hero p {
-  margin-top: 1rem;
-  margin-bottom: 2rem;
-  text-align: left;
-  font-size: 1.2rem;
-  color: var(--dark);
-  font-weight: 400;
   text-shadow:
     0 0 1px rgba(0,0,0,1),
     0 0 2px rgba(0,0,0,0.8);
@@ -172,8 +170,9 @@ nav .container {
   text-align: center;
   background: #e7e3e3;
   color: var(--blue);
-  padding: 0.7rem;
+  padding: 1rem;
   margin: 0 auto;
+  width: 80%;
   font-size: 1rem;
   border-radius: 0.25rem;
   text-decoration: none;
@@ -567,12 +566,21 @@ nav .container {
   }
   .hero h1 {
     text-align: left;
-    font-size: 5rem;
+    font-size: 4.4rem;
     margin: 0;
   }
   .hero h2 {
     font-size: 2.2rem;
     margin: 0;
+  }
+  .hero h3{
+  text-align: left;
+  font-size: 1.4rem;
+  color: var(--dark);
+  font-weight: 400;
+  text-shadow:
+    0 0 1px rgba(0,0,0,1),
+    0 0 2px rgba(0,0,0,0.8);
   }
   .hero p {
     margin: 0;
@@ -582,10 +590,15 @@ nav .container {
   .btn {
     font-size: 1.4rem;
     align-self: flex-start;
+    width: 30%;
     margin: 0;
-    margin-left: 10rem;
-    margin-bottom: 6rem;
-    padding: 1.1rem 4rem;
+    margin-bottom: 2rem;
+    padding: 1.1rem 2rem;
+  }
+  .btn:hover {
+      background: var(--bg);
+  transform: scale(1.05);
+  filter: drop-shadow(0 8px 16px rgba(255, 252, 252, 0.4));
   }
 /*-------------------4) SECCION NUESTRO EQUIPO A PARTIR DE 600px: Tablet + Desktop-----------------*/
 
