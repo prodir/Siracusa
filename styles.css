@@ -165,6 +165,9 @@ nav .container {
     0 0 1px rgba(0,0,0,1),
     0 0 2px rgba(0,0,0,0.8);
 }
+.hero-bottom h3, p {
+  color: #17394c;
+}
 .btn {
   display: block;
   text-align: center;
@@ -585,7 +588,7 @@ nav .container {
   .hero p {
     margin: 0;
     text-align: left;
-    font-size: 2.2rem;
+    font-size: 2rem;
   }
   .btn {
     font-size: 1.4rem;
