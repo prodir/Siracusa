@@ -3,7 +3,7 @@
   --light: rgb(232, 202, 132);
   --accent: #D1973B;
   --dark: #051016;
-  --gray: #71777B;
+  --gray: rgb(113, 119, 123);
   --blue: #17394c;
 }
 
@@ -97,6 +97,19 @@ nav .container {
 .nav-links a:hover {
   border-bottom: 1px solid var(--blue);
 }
+/*CODIGOS PARA TENES EL TEXTO RECTO AL FINAL, O SEA, SIN JUSTIFICAR*/
+.hero-bottom p,
+.faq-answer p,
+.testimonial-text,
+.equipo-texto p,
+.servicio-texto p,
+.contacto-derecha p,
+.faq-item .faq-question {
+  text-align: justify;        /* justifica todas las líneas */
+  text-align-last: left;      /* última línea alineada a la izquierda */
+  text-justify: inter-word;   /* expande espacios entre palabras */
+  hyphens: auto;              /* permite guiones en cortes */
+}
 
 /* HERO */
 .hero {
@@ -161,12 +174,18 @@ nav .container {
   font-size: 1.2rem;
   color: var(--bg);
   font-weight: 600;
-  text-shadow:
-    0 0 1px rgba(0,0,0,1),
-    0 0 2px rgba(0,0,0,0.8);
+    background: rgba(0, 0, 0, 0.301);
+  backdrop-filter: blur(15px);  /* opcional: difumina un poco la imagen */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
 }
-.hero-bottom h3, p {
-  color: #17394c;
+.hero-bottom h2, h3, p {
+  
+  color: rgb(212, 218, 223);
+  text-shadow:
+    0 0 2px rgba(0, 0, 0, 0.349),
+    0 0 2px rgba(0, 0, 0, 0.212);
 }
 .btn {
   display: block;
@@ -506,6 +525,9 @@ nav .container {
   transition: max-height 0.3s ease;
   text-align: left;
 }
+.faq-answer p {
+  color: #051016;
+}
 
 /* Cuando está abierto… */
 .faq-item.open .faq-icon {
@@ -516,6 +538,7 @@ nav .container {
   max-height: 500px; /* suficiente para mostrar tu texto */
   padding-bottom: 1rem;
 }
+
 
 
 /* --------------------------------------2) NAV A PARTIR DE 600px: Tablet + Desktop-------------------------------------- */
@@ -549,6 +572,19 @@ nav .container {
     padding: 0 1rem;
     border: none;
   }
+/*CODIGOS PARA TENES EL TEXTO RECTO AL FINAL, O SEA, SIN JUSTIFICAR*/
+.hero-bottom p,
+.faq-answer p,
+.testimonial-text,
+.equipo-texto p,
+.servicio-texto p,
+.contacto-derecha p,
+.faq-item .faq-question {
+  text-align: justify;        /* justifica todas las líneas */
+  text-align-last: left;      /* última línea alineada a la izquierda */
+  text-justify: inter-word;   /* expande espacios entre palabras */
+  hyphens: auto;              /* permite guiones en cortes */
+}
 /* --------------------------------------3) HERO A PARTIR DE 600px: Tablet + Desktop-------------------------------------- */
   .hero {
     background: url('herosiracusa.png') center/cover no-repeat;
@@ -590,10 +626,14 @@ nav .container {
     text-align: left;
     font-size: 2rem;
   }
+
+  .hero-bottom {
+    max-width: 600px;
+  }
   .btn {
     font-size: 1.4rem;
     align-self: flex-start;
-    width: 30%;
+    width: 550px;
     margin: 0;
     margin-bottom: 2rem;
     padding: 1.1rem 2rem;
@@ -661,6 +701,7 @@ nav .container {
       0 0 2px rgb(0, 0, 0),
       0 0 8px rgba(255, 255, 255, 0.8);
   }
+
   #equipo .clamp-text {
     font-size: 1.2rem;
     text-align: left;
