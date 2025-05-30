@@ -103,6 +103,7 @@ nav .container {
 .testimonial-text,
 .equipo-texto p,
 .servicio-texto p,
+.servicio-texto li,
 .contacto-derecha p,
 .faq-item .faq-question {
   text-align: justify;        /* justifica todas las líneas */
