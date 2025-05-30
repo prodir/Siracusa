@@ -616,7 +616,7 @@ nav .container {
   .hero h3{
   text-align: left;
   font-size: 1.4rem;
-  color: var(--dark);
+  color: var(--bg);
   font-weight: 400;
   text-shadow:
     0 0 1px rgba(0,0,0,1),
@@ -630,6 +630,7 @@ nav .container {
 
   .hero-bottom {
     max-width: 600px;
+    color: var(--bg);
   }
   .btn {
     font-size: 1.4rem;
